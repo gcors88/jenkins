@@ -1,0 +1,15 @@
+version: '3'
+services:
+  jenkins:
+    image: jenkinsci/blueocean
+    ports:
+      - '8084:8080'
+    volumes:
+      - 'jenkins_home:/var/jenkins_home'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - '/usr/bin/npm:/usr/bin/npm'
+      - '/usr/bin/node:/usr/bin/node'
+      - '/usr/bin/nodejs:/usr/bin/nodejs'
+volumes:
+  jenkins_home:
+    driver: local
